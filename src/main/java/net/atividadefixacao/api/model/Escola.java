@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import java.util.List;
 
@@ -19,6 +21,7 @@ public class Escola {
     private String nome;
 
     @OneToOne
+    @Cascade(value = CascadeType.PERSIST)
     private Endereco endereco;
 
     private String email;
